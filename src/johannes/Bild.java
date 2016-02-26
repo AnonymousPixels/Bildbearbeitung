@@ -53,7 +53,11 @@ class Bild {
 			for (int x = 0; x < breite; x++) {
 				int zufallszahl = (int) (Math.random() * (256));
 				// Aufgabe 1: Implementiere ein farbiges Rausch-Bild
+				int r = (int) (Math.random() * (256));
+				int g = (int) (Math.random() * (256));
+				int b = (int) (Math.random() * (256));
 
+				System.out.println();
 				switch (rauschen) {
 				case GRAU:
 					pixel[x][y] = pixel[x][y] = new Farbe(zufallszahl,
@@ -61,8 +65,19 @@ class Bild {
 					break;
 				case RGB:
 					// Aufgabe 1: Implementiere ein farbiges Rausch-Bild
-
+					pixel[x][y] = pixel[x][y] = new Farbe(r, g, b);
+					break;
+				case ROT:
+					pixel[x][y] = pixel[x][y] = new Farbe(255,0,0);
+					break;
+				case BLAU:
+					pixel[x][y] = pixel[x][y] = new Farbe(0,0,255);
+					break;
+				case GRUEN:
+					pixel[x][y] = pixel[x][y] = new Farbe(0,255,0);
+					break;
 				default:
+
 				}
 
 			}
