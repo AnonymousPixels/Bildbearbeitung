@@ -60,7 +60,10 @@ class Bild {
 							zufallszahl, zufallszahl);
 					break;
 				case RGB:
-					// Aufgabe 1: Implementiere ein farbiges Rausch-Bild
+					pixel[x][y] = pixel[x][y] = new Farbe(
+							(int) (Math.random() * (256)),
+							(int) (Math.random() * (256)),
+							(int) (Math.random() * (256)));
 
 				default:
 				}
@@ -80,6 +83,40 @@ class Bild {
 				// vom Typ Color (r,g,b)) uebergeben
 				grafik.setColor(pixel[x][y]);
 				grafik.drawLine(x0 + x, y0 + y, x0 + x, y0 + y);
+			}
+		}
+	}
+
+	void kontrast(int min, int max) {
+		for (int y = 0; y < hoehe; y++) {
+			for (int x = 0; x < breite; x++) {
+
+				if (this.farbWert(x, y, 0) < min)
+					this.setzteFarbWert(x, y, 0, 0);
+				if (this.farbWert(x, y, 1) < min)
+					this.setzteFarbWert(x, y, 1, 0);
+				if (this.farbWert(x, y, 2) < min)
+					this.setzteFarbWert(x, y, 2, 0);
+
+				if (max < this.farbWert(x, y, 0))
+					this.setzteFarbWert(x, y, 0, 255);
+				if (max < this.farbWert(x, y, 1))
+					this.setzteFarbWert(x, y, 1, 255);
+				if (max < this.farbWert(x, y, 2))
+					this.setzteFarbWert(x, y, 2, 255);
+
+			}
+		}
+	}
+
+	void negativ() {
+		for (int y = 0; y < hoehe; y++) {
+			for (int x = 0; x < breite; x++) {
+
+				this.setzteFarbWert(x, y, 0, 255 - farbWert(x, y, 0));
+				this.setzteFarbWert(x, y, 1, 255 - farbWert(x, y, 1));
+				this.setzteFarbWert(x, y, 2, 255 - farbWert(x, y, 2));
+
 			}
 		}
 	}
