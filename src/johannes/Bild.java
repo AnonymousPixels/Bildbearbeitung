@@ -2,7 +2,7 @@ package johannes;
 
 import java.awt.*;
 
-class Bild {
+public class Bild {
 
 	static final int ROT = 0;
 	static final int GRUEN = 1;
@@ -87,7 +87,7 @@ class Bild {
 	// Zeichne auf die Bildflaeche mit den Daten der Klasse (hoehe, breite,
 	// pixel)
 	// x0 und y0 geben die Position der Bildflaeche im Fenster an
-	void zeichneBild(Graphics grafik, int x0, int y0) {
+	public void zeichneBild(Graphics grafik, int x0, int y0) {
 
 		for (int y = 0; y < hoehe; y++) {
 			for (int x = 0; x < breite; x++) {

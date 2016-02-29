@@ -21,7 +21,6 @@ public class Bildbearbeitung {
 		{
 
 			public void paint(Graphics grafik) {
-
 				Graphics2D bildflaeche = (Graphics2D) grafik;
 				AffineTransform at = new AffineTransform();
 
@@ -35,15 +34,13 @@ public class Bildbearbeitung {
 				grafik.drawOval(-5, -5, 10, 10);
 
 				// Erzeugung eines grauen Rauschbildes
-				// Bild bild = new Bild(340, 340, Bild.RGB);
-				// bild.zeichneBild(grafik, 0, 0);
 
-				Image bild = BildIO
-						.ladeBild("E:\\GitHub\\Bildbearbeitung\\src\\examples\\calvinandhobbes.jpg");
-				Bild bild2 = BildIO.ladeFarbPixel(bild);
-				bild2.kontrast(100, 200);
-				// bild2.negativ();
-				bild2.zeichneBild(grafik, 0, 0);
+				Image image = BildIO
+						.ladeBild("src\\johannes\\calvinandhobbes.jpg");
+				Bild bild = new BildIO().ladeFarbPixel(image);
+				Faltung f = new max.Faltung(-1, -2, -1, 0, 0, 0, 1, 2, 1);
+				bild = f.falte(bild);
+				bild.zeichneBild(grafik, 0, 0);
 
 				// Aufgabe 1: Lass Dir die Pixel vergroessert anzeigen und die
 				// Werte eines Kanals
