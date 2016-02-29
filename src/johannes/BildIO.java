@@ -7,7 +7,7 @@ public class BildIO
 	private static Component comp = new Component() {};
 	private static MediaTracker mt = new MediaTracker(comp);
 
-	static Image ladeBild(String pfad) 
+	public static Image ladeBild(String pfad) 
 	{
 		Image image = Toolkit.getDefaultToolkit().getImage(pfad);
 		mt.addImage(image, 0);
@@ -22,7 +22,7 @@ public class BildIO
 		return image;
 	}
 
-	static Bild ladeFarbPixel(Image image) 
+	public static Bild ladeFarbPixel(Image image) 
 	{
 		int breite = image.getWidth(null);
 		int hoehe = image.getHeight(null);
